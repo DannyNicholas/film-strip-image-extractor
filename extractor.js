@@ -5,7 +5,7 @@ const path = require('path')
 const sharp = require('sharp')
 
 const options = yargs
-    .usage("Usage: --filePath <filePath> --directory <absolute-path-to-files>")
+    .usage("Usage: --filePath <filePath> --count <count-of-wanted-split-images> --scale <optional-scaling-factor> --interpolation <optional-scaling-interpolation-algorithm>")
     .option("f", {alias: "filePath", describe: "path to image file from current location", type: "string", demandOption: true})
     .option("c", {alias: "count", describe: "count of output images to be split from original", type: "number", demandOption: true})
     .option("s", {alias: "scale", describe: "scaling factor to be applied to each image", type: "number", demandOption: false})
