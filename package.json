@@ -1,0 +1,19 @@
+{
+  "name": "film-strip-image-extractor",
+  "version": "1.0.0",
+  "description": "Extracts and processes filmstrip of equally sized images",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DannyNicholas/film-strip-image-extractor.git"
+  },
+  "author": "Danny Nicholas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DannyNicholas/film-strip-image-extractor/issues"
+  },
+  "homepage": "https://github.com/DannyNicholas/film-strip-image-extractor#readme",
+  "dependencies": {
+    "sharp": "^0.24.1",
+    "yargs": "^15.1.0"
+  }
+}
