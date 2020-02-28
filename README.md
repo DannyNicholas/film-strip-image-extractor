@@ -1,4 +1,4 @@
-# film-strip-image-extractor
+# Film-Strip Image Extractor
 
 Node script that extracts a film-strip of equally sized images (such as the image below) into separate PNG image files.
 

@@ -2,7 +2,7 @@
 
 const yargs = require('yargs')
 const path = require('path')
-var sharp = require('sharp')
+const sharp = require('sharp')
 
 const options = yargs
     .usage("Usage: --filePath <filePath> --directory <absolute-path-to-files>")
@@ -14,7 +14,7 @@ const options = yargs
 
 const dimensions = async (image) => {
     const metaData = await image.metadata()
-    return {width: metaData.width, height: metaData.height}
+    return {imageWidth: metaData.width, imageHeight: metaData.height}
 }
 
 const processFile = async () => {
@@ -26,9 +26,7 @@ const processFile = async () => {
 
     // retrieve image dimensions
     const image = sharp(imageFileName)
-    const dim = await dimensions(image)
-    const imageWidth = dim.width
-    const imageHeight = dim.height
+    const {imageWidth, imageHeight} = await dimensions(image)
     console.log(`Supplied image: '${fileName}' has an original size of ${imageWidth} x ${imageHeight} pixels.`)
 
     // check image is completely divisible
@@ -61,7 +59,6 @@ const processFile = async () => {
         const outputImageFile = `${directory}/${fileName}-${i + 1}.png`
         let processedImage = sharp(imageFileName)
             .extract({ left: (i * width), top: 0, width: width, height: imageHeight })
-
         if (options.scale) {
             processedImage = processedImage
                 .resize({width: resizeWidth, height: resizeHeight, kernel: kernel})
